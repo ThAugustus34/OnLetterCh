@@ -1,5 +1,5 @@
 import { doc, setDoc } from "firebase/firestore/lite";
-import { db } from './firebaseconfig';
+import { db } from './firebaseconfig.tsx';
 
 const addLetterToFirestore = async (content: string, deliveryDate: string, recipientEmail: string) => {
     try {

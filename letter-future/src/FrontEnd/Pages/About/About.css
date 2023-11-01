@@ -1,0 +1,32 @@
+.about-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  border-radius: 15px;
+}
+
+.about-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #282c34;
+}
+
+.about-container p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.about-container .highlight {
+  color: #61dafb;
+  font-weight: bold;
+}
+
+.about-image {
+  max-width: 80%;
+  height: auto;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { addDoc, collection } from 'firebase/firestore/lite';
-import { db } from './firebaseconfig';
+import { db } from './firebaseconfig.tsx';
 
 
 const CreateFirebaseDatabase = () => {
