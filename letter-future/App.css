@@ -1,23 +1,75 @@
-.App {
-  text-align: center;
-  font-family: 'Arial', sans-serif;
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  top: 0;
+}
+
+
 .App-header {
+  width: 100%;
   background-color: #282c34;
-  min-height: 100vh;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0; 
+  color: white;
+}
+
+.connect-wallet-btn {
+  margin: auto 0;
+  margin-right:40px; 
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  height: 30px;
+  right: 300px;
+  width: 150px; 
+  transition: background-color 0.3s ease;
+  align-self: self-end;
+}
+
+
+
+.connect-wallet-btn:hover {
+  background-color: rgb(22, 75, 24)
+}
+
+
+.MainContent {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  color: white;
+  flex-grow: 1; 
+  width: 100%; 
 }
 
-h1 {
-  margin-bottom: 1.5rem;
+.form-group {
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
 }
-
 .form-group {
   margin-bottom: 1rem;
   width: 100%;
@@ -30,29 +82,24 @@ label {
   margin-bottom: 0.5rem;
 }
 
-textarea {
-  width: 100%;
+textarea, input[type="date"], input[type="email"] {
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 5px;
   border: 1px solid #ccc;
+  width: 100%;
+}
+
+textarea {
   min-height: 150px;
 }
 
-input[type="date"],
-input[type="email"] {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 100%;
-}
-
 button {
-  background-color: #61dafb;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem; 
   border: none;
   border-radius: 5px;
-  padding: 0.75rem 1rem;
+  background-color: #61dafb;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -60,8 +107,4 @@ button {
 
 button:hover {
   background-color: #4fa8d5;
-}
-
-.other-sections {
-  margin-top: 2rem;
 }
