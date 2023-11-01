@@ -19,41 +19,65 @@ html, body {
   top: 0;
 }
 
-
 .App-header {
   width: 100%;
   background-color: #282c34;
   height: 15vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 0; 
+  padding: 2rem; 
+  color: rgb(0, 0, 0);
+  position: relative;
+}
+
+.Header-Menu {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem; 
+  text-decoration: none;
+}
+
+.Header-Menu-menu-item {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #2656bd;
   color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+
+}
+
+.Header-Menu-menu-item:hover {
+  background-color: #163e8c;
+  text-decoration: none; 
+  list-style-type: none;
+}
+
+
+.main-header {
+  font-size: 1.5rem;
+  flex: 1;
+  text-align: center;
 }
 
 .connect-wallet-btn {
-  margin: auto 0;
-  margin-right:40px; 
   border: none;
   border-radius: 5px;
-  background-color: #4CAF50;
+  background-color: #2a742c;
   color: white;
   cursor: pointer;
-  height: 30px;
-  right: 300px;
-  width: 150px; 
+  height: 45px;
+  width: 200px;
   transition: background-color 0.3s ease;
-  align-self: self-end;
 }
-
-
 
 .connect-wallet-btn:hover {
   background-color: rgb(22, 75, 24)
 }
-
-
 .MainContent {
   display: flex;
   flex-direction: column;
@@ -61,17 +85,16 @@ html, body {
   justify-content: center;
   flex-grow: 1; 
   width: 100%; 
+  padding: 2rem;
+  padding: 0;
+  background-image: url('./FrontEnd/Assets/BackgroundImage/MainContentBackground.png');
+  background-repeat: no-repeat;  
+  background-size: cover;       
+  background-position: center;
 }
 
 .form-group {
-  margin-bottom: 1rem;
-  width: 100%;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-}
-.form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem; 
   width: 100%;
   max-width: 500px;
   display: flex;
@@ -79,15 +102,30 @@ html, body {
 }
 
 label {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold; 
+  color: #ffffff;
+  background-color: #282c34; 
+  border-radius: 20px;       
+  padding: 10px 20px;       
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;   
+  text-align: center;      
 }
 
+
 textarea, input[type="date"], input[type="email"] {
-  padding: 0.5rem;
+  padding: 0.8rem; 
   font-size: 1rem;
   border-radius: 5px;
   border: 1px solid #ccc;
   width: 100%;
+  transition: box-shadow 0.3s ease, border 0.3s ease; 
+}
+
+textarea:focus, input[type="date"]:focus, input[type="email"]:focus {
+  box-shadow: 0 0 5px rgba(97, 218, 251, 0.7);
+  border-color: #61dafb;
 }
 
 textarea {
@@ -95,16 +133,64 @@ textarea {
 }
 
 button {
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
   margin-top: 1rem; 
   border: none;
   border-radius: 5px;
   background-color: #61dafb;
   color: white;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+  display: block;     
+  margin-left: auto;   
+  margin-right: auto;  
 }
 
 button:hover {
   background-color: #4fa8d5;
+  transform: scale(1.05); 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);  
 }
+
+button:active {
+  transform: scale(1); 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
+}
+
+.centered-textarea {
+  width: 400px;          
+  resize: vertical;      
+  margin: auto;        
+  min-height: 150px;     
+  max-height: 80vh;       
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.centered-textarea:focus {
+  box-shadow: 0 0 5px rgba(97, 218, 251, 0.7);
+  border-color: #61dafb;
+}
+
+.main-header {
+  text-align: center;
+  font-size: 2rem;                 
+  color: #ffffff;                  
+  margin-bottom: 1.5rem;            
+  border-bottom: 3px solid #61dafb; 
+  padding-bottom: 0.5rem;         
+  letter-spacing: 1px;           
+  text-transform: uppercase;       
+  transition: all 0.3s ease;     
+}
+
+.main-header:hover {
+  color: #4fa8d5;                  
+  border-bottom-color: #4fa8d5;    
+}
+
+
