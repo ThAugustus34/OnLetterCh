@@ -1,14 +1,31 @@
-// MainContent.tsx
 import React, { useState } from 'react';
 import '../../../App.css';
+import { sendPayment, checkMinaProvider } from '../../../BackEnd/Database/WalletProc/Connection';
+
 const MainContent: React.FC = () => {
     const [content, setContent] = useState('');
     const [deliveryDate, setDeliveryDate] = useState('');
     const [recipientEmail, setRecipientEmail] = useState('');
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log("Form submitted");
+        e.preventDefault(); 
+
+        if (!(await checkMinaProvider())) {
+            alert('No provider was found. Please install Auro Wallet.');
+        }
+
+        try {
+            const transactionHash = await sendPayment({
+                content: content,
+                email: recipientEmail,
+                deliverydate: deliveryDate
+              });
+
+            console.log('Payment was successful! Transaction hash:', transactionHash);
+        } catch (error) {
+            console.error('Payment Error:', error);
+            alert('Payment Error: ' + error.message);
+        }
     };
 
     return (
