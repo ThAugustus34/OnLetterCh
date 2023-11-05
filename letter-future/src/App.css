@@ -116,11 +116,14 @@ html, body {
   list-style-type: none;
   color: #ffffff;
   width: 140px;
-  font-size: medium;  
+  font-size: medium; 
 }
 .connect-wallet-btn:hover {   
+  width: 140px;
+  height: 60px;
   background-image: url('./FrontEnd/Assets/Buttons/ConnectWallet.png');
   background-color: transparent;
+  padding-bottom: 0px; 
 }
 
 .MainContent {

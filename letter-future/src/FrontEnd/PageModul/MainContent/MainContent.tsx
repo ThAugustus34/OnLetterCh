@@ -32,7 +32,7 @@ const MainContent: React.FC = () => {
         <div className='MainContent'> 
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                <h1 className="main-header">Letter Content</h1>
+                <h1 className="Content-header">Write Something For The Future</h1>
                     <textarea
                         id="content"
                         className="centered-textarea"
@@ -63,7 +63,7 @@ const MainContent: React.FC = () => {
                         placeholder="Recipient's email address..."
                     />
                 </div>
-                <button className="button" type="submit">Submit</button>
+                <button className="submit-button" type="submit"></button>
             </form>
         </div>
     );

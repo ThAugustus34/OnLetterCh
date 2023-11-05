@@ -20,8 +20,8 @@ const Header: React.FC = () => {
     return (
         <header className="App-header">
             <ul className='Header-Menu'>
-                <li><Link to="/about" className="Header-Menu-menu-item">About</Link></li>
-                <li><Link to="/about" className="Header-Menu-menu-item">FAQ</Link></li>
+                <li><Link to="/about" id="about" className="Header-Menu-menu-item">About</Link></li>
+                <li><Link to="/about"id='faq' className="Header-Menu-menu-item">FAQ</Link></li>
             </ul>
             <h1 className='main-header'>Future Letter</h1>
             <button onClick={connectWallet} className="connect-wallet-btn">Connect Wallet</button>
