@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { requestAccounts } from '../../../BackEnd/Database/WalletProc/Connection';
+import { requestAccounts } from '../../WalletProc/Connection';
 
 const Header: React.FC = () => {
     

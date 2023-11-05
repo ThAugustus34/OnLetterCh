@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../../../App.css';
-import { sendPayment, checkMinaProvider } from '../../../BackEnd/Database/WalletProc/Connection';
+import { sendPayment, checkMinaProvider } from '../../WalletProc/Connection';
 
 const MainContent: React.FC = () => {
     const [content, setContent] = useState('');

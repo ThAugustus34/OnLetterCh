@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
-import HomePage from './FrontEnd/Pages/Home/HomePage.tsx';
-import FaqPage from './FrontEnd/Pages/Faq/FaqPage.tsx';
-import AboutPage from './FrontEnd/Pages/About/AboutPage.tsx';
+import HomePage from './FrontEnd/Pages/Home/HomePage';
+import FaqPage from './FrontEnd/Pages/Faq/FaqPage';
+import AboutPage from './FrontEnd/Pages/About/AboutPage';
 
 
 function App() {
