@@ -27,32 +27,39 @@ declare global {
     if (!(await checkMinaProvider())) {
       throw new Error('No provider was found. Please install Auro Wallet.');
     }
+
+    let accounts = await window.mina.getAccounts();
+    if (!accounts || accounts.length === 0) {
+      throw new Error('No accounts found.');
+    }
   
     try {
+
       const requestData = await Request({ GetTransactionData: "0" });
+      if (!requestData || !requestData.lettersendamount || !requestData.MainWalletAdress || !requestData.fee) {
+        throw new Error('Invalid transaction data received.');
+      }
+
       const sendResult = await window.mina.sendLegacyPayment({
         amount: requestData.lettersendamount, 
         to: requestData.MainWalletAdress,
         fee: requestData.fee,
         memo: requestData.memo
       });
+
       if (sendResult && 'hash' in sendResult) {
-        let accounts;
-        try {
-          accounts = await window.mina.getAccounts();
-          if (!accounts || accounts.length === 0) {
-            throw new Error('No accounts found.');
+        const transactionhash = sendResult.hash;
+        const CompleteData = {
+          CompleteTransaction: {
+            accounts,  
+            email,     
+            deliverydate, 
+            content,  
+            transactionhash
           }
-        } catch (accountsError) {
-          console.error('Failed to retrieve accounts:', accountsError);
-          throw new Error('Payment was sent, but account retrieval failed.');
-        }
-        try {
-          return sendResult.hash;
-        } catch (firestoreError) {
-          console.error('Failed to update Firestore:', firestoreError);
-          throw new Error('Payment was sent, accounts retrieved, but Firestore update failed.');
-        }
+        };
+      const CompleteRequest = await Request(CompleteData);
+      return CompleteRequest.message;
       } else {
         throw new Error(sendResult?.message || 'Payment failed with no transaction hash returned.');
       }
@@ -61,6 +68,7 @@ declare global {
       throw error;
     }
   }
+
   
   export async function requestAccounts(): Promise<string[]> {
     if (!(await checkMinaProvider())) {
