@@ -168,15 +168,18 @@ html, body {
 
 label {
   margin-bottom: 1rem;
-  font-weight: bold; 
+  font-weight: 600; 
   color: #ffffff;
-  background-color: #282c34; 
-  border-radius: 20px;       
-  padding: 10px 20px;       
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  display: inline-block;   
-  text-align: center;      
+  background-color: #192c55;
+  border-radius: 12px; 
+  padding: 12px 24px; 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
 }
+
 
 textarea, input[type="date"], input[type="email"] {
   padding: 0.8rem; 
