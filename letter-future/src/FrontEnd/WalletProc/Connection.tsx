@@ -19,55 +19,52 @@ declare global {
     return true;
   }
   
-  export async function sendPayment({
-    content, 
-    email,
-    deliverydate, 
-  }: SendPaymentParams): Promise<string> {
+  export async function sendPayment({ content, email, deliverydate }: SendPaymentParams): Promise<string> {
     if (!(await checkMinaProvider())) {
       throw new Error('No provider was found. Please install Auro Wallet.');
     }
-
-    let accounts = await window.mina.getAccounts();
+  
+    const accounts = await window.mina.getAccounts();
     if (!accounts || accounts.length === 0) {
       throw new Error('No accounts found.');
     }
-  
+    
     try {
-
       const requestData = await Request({ GetTransactionData: "0" });
       if (!requestData || !requestData.lettersendamount || !requestData.MainWalletAdress || !requestData.fee) {
         throw new Error('Invalid transaction data received.');
       }
-
+  
       const sendResult = await window.mina.sendLegacyPayment({
-        amount: requestData.lettersendamount, 
+        amount: requestData.lettersendamount,
         to: requestData.MainWalletAdress,
         fee: requestData.fee,
         memo: requestData.memo
       });
-
-      if (sendResult && 'hash' in sendResult) {
-        const transactionhash = sendResult.hash;
-        const CompleteData = {
-          CompleteTransaction: {
-            accounts,  
-            email,     
-            deliverydate, 
-            content,  
-            transactionhash
-          }
-        };
+  
+      if (!sendResult || !('hash' in sendResult)) {
+        throw new Error('Payment failed with no transaction hash returned.');
+      }
+  
+      const transactionhash = sendResult.hash;
+      const CompleteData = {
+        CompleteTransaction: {
+          accounts,
+          email,
+          deliverydate,
+          content,
+          transactionhash
+        }
+      };
       const CompleteRequest = await Request(CompleteData);
       return CompleteRequest.message;
-      } else {
-        throw new Error(sendResult?.message || 'Payment failed with no transaction hash returned.');
-      }
+  
     } catch (error) {
       console.error('Payment failed:', error);
       throw error;
     }
   }
+  
 
   
   export async function requestAccounts(): Promise<string[]> {
