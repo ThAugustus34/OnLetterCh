@@ -7,6 +7,12 @@ const MainContent: React.FC = () => {
     const [deliveryDate, setDeliveryDate] = useState('');
     const [recipientEmail, setRecipientEmail] = useState('');
 
+    const resetForm = () => {
+        setContent('');
+        setDeliveryDate('');
+        setRecipientEmail('');
+    };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault(); 
 
@@ -22,9 +28,11 @@ const MainContent: React.FC = () => {
               });
 
             console.log('Payment was successful! Transaction hash:', transactionHash);
+            resetForm();
         } catch (error) {
             console.error('Payment Error:', error);
             alert('Payment Error: ' + error.message);
+            resetForm();
         }
     };
 

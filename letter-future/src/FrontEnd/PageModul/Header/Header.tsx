@@ -23,7 +23,7 @@ const Header: React.FC = () => {
                 <li><Link to="/about" id="about" className="Header-Menu-menu-item">About</Link></li>
                 <li><Link to="/faq"id='faq' className="Header-Menu-menu-item">FAQ</Link></li>
             </ul>
-            <h1 className='main-header'>Future Letter</h1>
+            <h1 className='main-header'>Letter to the Future</h1>
             <button onClick={connectWallet} className="connect-wallet-btn">Connect Wallet</button>
         </header>
     );
