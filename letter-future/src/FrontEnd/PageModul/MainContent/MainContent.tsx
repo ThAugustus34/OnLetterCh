@@ -32,7 +32,6 @@ const MainContent: React.FC = () => {
         } catch (error) {
             console.error('Payment Error:', error);
             alert('Payment Error: ' + error.message);
-            resetForm();
         }
     };
 
